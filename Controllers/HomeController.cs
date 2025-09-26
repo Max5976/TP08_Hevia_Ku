@@ -17,18 +17,21 @@ public class HomeController : Controller
     {
         return View();
     }
-     public IActionResult ConfigurarJuego()
+     public IActionResult ConfigurarJuego(string username, string dificultad, string categoria)  //En index poner form para entrar a juego
     {
-    list<Categoria> categorias = Juego.ObtenerCategorias();
-    list<Dificultades> dificultades = Juego.ObtenerDificultades();
+    Juego juego = new Juego();
+    juego.CargarPartida(username, dificultad, categoria);
+    Objeto.ListToString<Juego>("juego", Objeto.ListToString(juego));
+    List<Categoria> categorias = Juego.ObtenerCategorias();
+    List<Dificultad> dificultades = Juego.ObtenerDificultades();
+    Objeto.ListToString<Categoria>("categorias", Objeto.ListToString(categorias));
+    Objeto.ListToString<Dificultad>("dificultades", Objeto.ListToString(dificultades));
     ViewBag.Categorias = categorias;
-    categorias = Objeto.StringToList<Categoria> (HttpContext.Session.GetString("categorias"));
-    //Falta crear StringToList
     ViewBag.Dificultades = dificultades;
     return View("ConfigurarJuego");
     }
     public IActionResult Comenzar(string username, int dificultad, int categoria){
-        ViewBag.ListaPreguntas = Juego.CargarPartida(username,dificultad,categoria);
+        ViewBag.ListaPreguntas = Juego.CargarPartida(username, dificultad, categoria);
         ViewBag.username = username;
         return View("Jugar");
     }
@@ -45,7 +48,13 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-    public IActionResult VerificarRespuesta(int idPregunta, int idRespuesta) {
-        ViewBag.esCorrecto = Juego.VerificarRespuesta(idRespuesta);
+    public IActionResult VerificarRespuesta(int idRespuestaElegida) {
+        ViewBag.esCorrecto = Juego.VerificarRespuesta(idRespuestaElegida);
+        if (ViewBag.esCorrecto == false) {
+            //foreach(idRespuesta in ObtenerRespuestas(idPregunta)) {
+
+            //}
+        }
+        return View("Respuesta");
     }
 }

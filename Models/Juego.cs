@@ -1,11 +1,11 @@
-public class Juego{
-    string username {get; set;}
-    int PuntajeActual {get; set;}
-    int CantidadPreguntasCorrectas{get; set;}
-    int ContadorNroPreguntaActual{get; set;}
-    Pregunta PreguntaActual{get; set;}
-    List<Pregunta> ListaPreguntas{get; set;}
-    List<Respuesta> ListaRespuestas{get; set;}
+public class Juego {
+    public string username {get; private set;}
+    public int PuntajeActual {get; private set;}
+    public int CantidadPreguntasCorrectas{get; private set;}
+    public int ContadorNroPreguntaActual{get; private set;}
+    public Pregunta PreguntaActual{get; private set;}
+    public List<Pregunta> ListaPreguntas{get; private set;}
+    public List<Respuesta> ListaRespuestas{get; private set;}
  
     private void InicializarJuego(){
         username = null;

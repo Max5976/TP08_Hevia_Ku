@@ -1,0 +1,8 @@
+Z:\TP08_Ku_Hevia\obj\Debug\net8.0\TP08_Ku_Hevia.csproj.AssemblyReference.cache
+Z:\TP08_Ku_Hevia\obj\Debug\net8.0\TP08_Ku_Hevia.GeneratedMSBuildEditorConfig.editorconfig
+Z:\TP08_Ku_Hevia\obj\Debug\net8.0\TP08_Ku_Hevia.AssemblyInfoInputs.cache
+Z:\TP08_Ku_Hevia\obj\Debug\net8.0\TP08_Ku_Hevia.AssemblyInfo.cs
+Z:\TP08_Ku_Hevia\obj\Debug\net8.0\TP08_Ku_Hevia.csproj.CoreCompileInputs.cache
+Z:\TP08_Ku_Hevia\obj\Debug\net8.0\TP08_Ku_Hevia.MvcApplicationPartsAssemblyInfo.cache
+Z:\TP08_Ku_Hevia\obj\Debug\net8.0\TP08_Ku_Hevia.RazorAssemblyInfo.cache
+Z:\TP08_Ku_Hevia\obj\Debug\net8.0\TP08_Ku_Hevia.RazorAssemblyInfo.cs
