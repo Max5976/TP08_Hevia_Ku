@@ -17,11 +17,8 @@ public class HomeController : Controller
     {
         return View();
     }
-     public IActionResult ConfigurarJuego(string username, string dificultad, string categoria)  //En index poner form para entrar a juego
+     public IActionResult ConfigurarJuego()
     {
-    Juego juego = new Juego();
-    juego.CargarPartida(username, dificultad, categoria);
-    Objeto.ListToString<Juego>("juego", Objeto.ListToString(juego));
     List<Categoria> categorias = Juego.ObtenerCategorias();
     List<Dificultad> dificultades = Juego.ObtenerDificultades();
     Objeto.ListToString<Categoria>("categorias", Objeto.ListToString(categorias));
@@ -31,18 +28,23 @@ public class HomeController : Controller
     return View("ConfigurarJuego");
     }
     public IActionResult Comenzar(string username, int dificultad, int categoria){
+        Juego juego = new Juego();
         ViewBag.ListaPreguntas = Juego.CargarPartida(username, dificultad, categoria);
+        Objeto.ObjectToString<Juego>("juego", Objeto.ObjectToString(juego));
         ViewBag.username = username;
         return View("Jugar");
     }
     
     public IActionResult Jugar() {
+        Juego juego = Objeto.StringToObject<Juego>("juego");
         ViewBag.Pregunta = Juego.ObtenerProximaPregunta();
+        Objeto.ObjectToString<Pregunta>("pregunta", Objeto.ObjectToString(ViewBag.Pregunta));
         if (ViewBag.Pregunta == null) {
             return View("Fin");
         }
         else {
             ViewBag.Respuestas = Juego.ObtenerProximasRespuestas(ViewBag.Pregunta.IdPregunta);
+            Objeto.ListToString<Respuesta>("respuestas", Objeto.ListToString(ViewBag.Respuestas));
             return View("Juego");
         }
     }
@@ -51,9 +53,20 @@ public class HomeController : Controller
     public IActionResult VerificarRespuesta(int idRespuestaElegida) {
         ViewBag.esCorrecto = Juego.VerificarRespuesta(idRespuestaElegida);
         if (ViewBag.esCorrecto == false) {
-            //foreach(idRespuesta in ObtenerRespuestas(idPregunta)) {
-
-            //}
+            List<Respuesta> respuestas = Objeto.StringToList<Respuesta>(Objeto.StringToList("respuestas"));
+            foreach(Respuesta respuesta in respuestas) {
+                idRespuesta = respuesta.IdRespuesta;
+                ViewBag.esLaVerdadera = Juego.VerificarRespuesta(idRespuesta);
+                if (ViewBag.esLaVerdadera == true) {
+                    ViewBag.respuestaCorrecta = respuesta;
+                }
+                else {
+                    Console.WriteLine("Se ha chequeado una respuesta de las que no es, es falsa");
+                }
+            }
+        }
+        else {
+            Console.WriteLine("Se ha logrado la verificación de respuesta");
         }
         return View("Respuesta");
     }

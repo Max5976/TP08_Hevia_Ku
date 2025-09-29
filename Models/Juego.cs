@@ -32,7 +32,8 @@ public class Juego {
     {
         if (ContadorNroPreguntaActual + 1 < ListaPreguntas.Count)
         {
-            return ListaPreguntas[ContadorNroPreguntaActual + 1];
+            ContadorNroPreguntaActual++;
+            return ListaPreguntas[ContadorNroPreguntaActual];
         }
         return null;
     }
