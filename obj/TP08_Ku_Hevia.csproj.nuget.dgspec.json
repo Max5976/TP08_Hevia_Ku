@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "Z:\\TP08_Ku_Hevia\\TP08_Ku_Hevia.csproj": {}
+    "C:\\Users\\49194194\\Downloads\\TP08_Hevia_Ku-main\\TP08_Ku_Hevia.csproj": {}
   },
   "projects": {
-    "Z:\\TP08_Ku_Hevia\\TP08_Ku_Hevia.csproj": {
+    "C:\\Users\\49194194\\Downloads\\TP08_Hevia_Ku-main\\TP08_Ku_Hevia.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Z:\\TP08_Ku_Hevia\\TP08_Ku_Hevia.csproj",
+        "projectUniqueName": "C:\\Users\\49194194\\Downloads\\TP08_Hevia_Ku-main\\TP08_Ku_Hevia.csproj",
         "projectName": "TP08_Ku_Hevia",
-        "projectPath": "Z:\\TP08_Ku_Hevia\\TP08_Ku_Hevia.csproj",
-        "packagesPath": "C:\\Users\\95097703\\.nuget\\packages\\",
-        "outputPath": "Z:\\TP08_Ku_Hevia\\obj\\",
+        "projectPath": "C:\\Users\\49194194\\Downloads\\TP08_Hevia_Ku-main\\TP08_Ku_Hevia.csproj",
+        "packagesPath": "C:\\Users\\49194194\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\49194194\\Downloads\\TP08_Hevia_Ku-main\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\95097703\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\49194194\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

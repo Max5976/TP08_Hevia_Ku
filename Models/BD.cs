@@ -6,7 +6,7 @@ private static string _connectionString = @"Server=localhost; Database=Preguntad
 
 public static List<Categoria> ObtenerCategorias()
 {
-    List<Categoria> listaCategorias = null;
+     List<Categoria> listaCategorias = new List<Categoria>();
     using (SqlConnection connection = new SqlConnection(_connectionString))
     {
         string storedProcedure = "ObtenerCategorias";
@@ -19,7 +19,7 @@ public static List<Categoria> ObtenerCategorias()
 }
 public static List<Dificultad> ObtenerDificultades()
 {
-    List<Dificultad> listaDificultades = null;
+    List<Dificultad> listaDificultades = new List<Dificultad>();
     using (SqlConnection connection = new SqlConnection(_connectionString))
     {
         string storedProcedure = "ObtenerDificultades";
@@ -32,7 +32,7 @@ public static List<Dificultad> ObtenerDificultades()
 }
 public static List<Pregunta> ObtenerPreguntas(int dificultad, int categoria)
 {
-    List<Pregunta> listaPreguntas = null;
+    List<Pregunta> listaPreguntas = new List<Pregunta>();
 
     using (SqlConnection connection = new SqlConnection(_connectionString))
     {
@@ -48,7 +48,7 @@ public static List<Pregunta> ObtenerPreguntas(int dificultad, int categoria)
 }
 public static List<Respuesta> ObtenerRespuestas(int idPregunta)
 {
-    List<Respuesta> listaRespuestas = null;
+    List<Respuesta> listaRespuestas = new List<Respuesta>();
 
     using (SqlConnection connection = new SqlConnection(_connectionString))
     {
