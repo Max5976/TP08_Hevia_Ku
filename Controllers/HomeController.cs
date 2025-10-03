@@ -28,7 +28,7 @@ namespace TP08_Ku_Hevia.Controllers
             HttpContext.Session.SetString("dificultades", Objeto.ListToString(dificultades));
             ViewBag.Categorias = categorias;
             ViewBag.Dificultades = dificultades;
-            return View("/ConfigurarJuego");
+            return View("ConfigurarJuego");
         }
 
         public IActionResult Comenzar(string username, int dificultad, int categoria)
@@ -44,7 +44,7 @@ namespace TP08_Ku_Hevia.Controllers
 
         public IActionResult Jugar()
         {
-             var jsonJuego = HttpContext.Session.GetString("juego");
+            var jsonJuego = HttpContext.Session.GetString("juego");
             Juego juego = Objeto.StringToObject<Juego>(jsonJuego);
 
             Pregunta pregunta = juego.ObtenerProximaPregunta();
@@ -63,7 +63,7 @@ namespace TP08_Ku_Hevia.Controllers
 
                 ViewBag.Pregunta = pregunta;
                 ViewBag.Respuestas = respuestas;
-                return View("Juego");
+                return View("Jugar");
             }
         }
 

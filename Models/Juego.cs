@@ -18,8 +18,8 @@ public class Juego {
     }
 
     public List<Categoria> ObtenerCategorias(){
-                return BD.ObtenerCategorias();
-            }
+        return BD.ObtenerCategorias();
+    }
     public List<Dificultad> ObtenerDificultades(){
                 return BD.ObtenerDificultades();
     }
