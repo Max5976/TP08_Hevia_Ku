@@ -2,7 +2,23 @@
     ViewData["Title"] = "ConfigurarJuego";
 }
 
-<div>
-    <h1>ConfigurarJuego</h1>
-    <p></p>
-</div>
+<h2>Configurar Juego</h2>
+
+<form action="/Home/Comenzar" method="get">
+    <input type="text" name="username" placeholder="Nombre de usuario" required />
+
+    <input type="radio" name="dificultad" value="-1" required /> Todas
+    <input type="radio" name="dificultad" value="1" /> Fácil
+    <input type="radio" name="dificultad" value="2" /> Media
+    <input type="radio" name="dificultad" value="3" /> Difícil
+
+    <select name="categoria" required>
+        <option value="-1">Todas</option>
+        @foreach (var cat in ViewBag.ListaCategorias)
+        {
+            <option value="@cat.IdCategoria">@cat.Nombre</option>
+        }
+    </select>
+
+    <button type="submit">Jugar</button>
+</form>
