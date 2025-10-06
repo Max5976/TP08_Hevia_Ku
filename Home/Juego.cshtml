@@ -1,0 +1,60 @@
+@{
+    ViewData["Title"] = "Juego";
+}
+
+<h2>¡Bienvenido @ViewBag.username!</h2>
+<p>Puntaje: @ViewBag.PuntajeActual</p>
+<p>Pregunta @ViewBag.NumeroPregunta de @ViewBag.TotalPreguntas</p>
+
+@if (ViewBag.Pregunta != null)
+{
+    <div class="pregunta">
+        <h3>@ViewBag.Pregunta.Enunciado</h3>
+        
+        @if (!string.IsNullOrEmpty(ViewBag.Pregunta.Foto))
+        {
+            <img src="@ViewBag.Pregunta.Foto"/>
+        }
+    </div>
+
+    <form action="/Home/VerificarRespuesta" method="post">
+        @if (ViewBag.Respuestas != null)
+        {
+            @foreach (var respuesta in ViewBag.Respuestas)
+            {
+                <div class="opcion">
+                    <label>
+                        <input type="radio" name="idRespuestaElegida" value="@respuesta.IdRespuesta" required/>
+                        @respuesta.Texto
+                        
+                        @if (!string.IsNullOrEmpty(respuesta.Foto))
+                        {
+                            <br />
+                            <img src="@respuesta.Foto" alt="Imagen de respuesta"/>
+                        }
+                    </label>
+                </div>
+            }
+        }
+        
+        <button type="submit" onclick="responderPregunta(event)">Responder</button>
+    </form>
+}
+else
+{
+    <p>No hay más preguntas disponibles.</p>
+}
+
+<script>
+function responderPregunta(event) {
+    const respuestaSeleccionada = document.querySelector('input[name="idRespuestaElegida"]:checked');
+    
+    if (!respuestaSeleccionada) {
+        event.preventDefault();
+        console.log('Por favor selecciona una respuesta');
+        return false;
+    }
+    
+    console.log('Enviando respuesta');
+}
+</script>
