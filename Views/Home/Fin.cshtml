@@ -1,0 +1,24 @@
+@{
+    ViewData["Title"] = "Fin del Juego";
+}
+
+<div class="finJuego">
+    <h1>¡Juego Terminado!</h1>
+    
+    <div class="resultadoFinal">
+        <h2>¡Felicitaciones @ViewBag.username!</h2>
+        <div class="puntajeFinal">
+            <h3>Puntaje Final: @ViewBag.PuntajeActual</h3>
+        </div>
+    </div>
+    
+    <div class="acciones">
+        <a href="/Home/ConfigurarJuego" class="botonJugar" onclick="volverAJugar(event)">Volver a Jugar</a>
+    </div>
+</div>
+
+<script>
+function volverAJugar(event) {
+    console.log('¡Volviendo a configurar el juego!');
+}
+</script>

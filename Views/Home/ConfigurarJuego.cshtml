@@ -1,5 +1,5 @@
 @{
-    ViewData["Title"] = "ConfigurarJuego";
+    ViewData["Title"] = "Configurar Juego";
 }
 
 <h2>Configurar Juego</h2>
@@ -20,5 +20,26 @@
         }
     </select>
 
-    <button type="submit">Jugar</button>
+    <button type="submit" onclick="validarFormulario(event)">Jugar</button>
 </form>
+
+<script>
+function validarFormulario(event) {
+    const username = document.querySelector('input[name="username"]').value.trim();
+    const dificultad = document.querySelector('input[name="dificultad"]:checked');
+    
+    if (!username) {
+        event.preventDefault();
+        alert('Por favor ingresa tu nombre de usuario');
+        return false;
+    }
+    
+    if (!dificultad) {
+        event.preventDefault();
+        alert('Por favor selecciona una dificultad');
+        return false;
+    }
+    
+    console.log('¡Comenzando el juego!');
+}
+</script>

@@ -25,15 +25,21 @@ public class Juego {
     }
     public List<Pregunta> CargarPartida(string username, int dificultad, int categoria){
         InicializarJuego();
-        List<Pregunta> listaPreguntas = BD.ObtenerPreguntas(dificultad,categoria);
-        return listaPreguntas;
+        this.username = username;
+        ListaPreguntas = BD.ObtenerPreguntas(dificultad,categoria);
+        return ListaPreguntas;
     }
     public Pregunta ObtenerProximaPregunta()
     {
-        if (ContadorNroPreguntaActual + 1 < ListaPreguntas.Count)
+        if (ListaPreguntas == null || ListaPreguntas.Count == 0)
         {
-            ContadorNroPreguntaActual++;
-            return ListaPreguntas[ContadorNroPreguntaActual];
+            return null;
+        }
+        
+        if (ContadorNroPreguntaActual < ListaPreguntas.Count)
+        {
+            PreguntaActual = ListaPreguntas[ContadorNroPreguntaActual];
+            return PreguntaActual;
         }
         return null;
     }

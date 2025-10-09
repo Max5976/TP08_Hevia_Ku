@@ -1,0 +1,41 @@
+@{
+    ViewData["Title"] = "Respuesta";
+}
+
+<div class="resultado">
+    @if (ViewBag.esCorrecto == true)
+    {
+        <div class="correcto">
+            <h1>¡Correcto!</h1>
+            <p>¡Bien hecho! Has ganado 1000 puntos.</p>
+        </div>
+    }
+    else
+    {
+        <div class="incorrecto">
+            <h1>Incorrecto</h1>
+            <p>La respuesta correcta era:</p>
+            @if (ViewBag.respuestaCorrecta != null)
+            {
+                <div class="respuestaCorrecta">
+                    <strong>@ViewBag.respuestaCorrecta.Texto</strong>
+                    @if (!string.IsNullOrEmpty(ViewBag.respuestaCorrecta.Foto))
+                    {
+                        <br />
+                        <img src="@ViewBag.respuestaCorrecta.Foto" alt="Imagen de la respuesta correcta" />
+                    }
+                </div>
+            }
+        </div>
+    }
+</div>
+
+<div class="acciones">
+    <a href="/Home/Jugar" class="boton" onclick="siguientePregunta(event)">Siguiente Pregunta</a>
+</div>
+
+<script>
+function siguientePregunta(event) {
+    console.log('Cargando siguiente pregunta');
+}
+</script>

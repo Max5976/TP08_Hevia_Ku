@@ -47,6 +47,11 @@ namespace TP08_Ku_Hevia.Controllers
             var jsonJuego = HttpContext.Session.GetString("juego");
             Juego juego = Objeto.StringToObject<Juego>(jsonJuego);
 
+            if (juego == null)
+            {
+                return RedirectToAction("ConfigurarJuego");
+            }
+
             Pregunta pregunta = juego.ObtenerProximaPregunta();
             HttpContext.Session.SetString("pregunta", Objeto.ObjectToString(pregunta));
 

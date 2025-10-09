@@ -21,7 +21,14 @@
 </div>
 
 <div>
-    <button type="button" class="btn btn-info" onclick="location.href='@Url.Action("Jugar")'">
+    <button type="button" class="btn btn-info" onclick="irAConfigurar()">
         Ir a Configurar Juego
     </button>
 </div>
+
+<script>
+function irAConfigurar() {
+    console.log('Yendo a configurar juego');
+    location.href = '@Url.Action("ConfigurarJuego")';
+}
+</script>
